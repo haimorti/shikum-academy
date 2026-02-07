@@ -1,14 +1,8 @@
-import type { Metadata } from "next"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowLeft, FileCheck, Sparkles, HelpCircle, GraduationCap } from "lucide-react"
 import { MobileNav } from "@/components/mobile-nav"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-
-export const metadata: Metadata = {
-  title: "שיקום מקצועי לסטודנטים | המדריך שלך",
-  description: "המדריך המלא לסטודנטים עם מוגבלות בשיקום מקצועי - מהגשת הבקשה ועד מימוש כל הזכאויות",
-}
 
 export default function HomePage() {
   return (
@@ -49,7 +43,7 @@ export default function HomePage() {
           <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground">
             <HelpCircle className="h-4 w-4 shrink-0 text-primary" />
             <span>{"לא בטוח/ה אם אושרה לך זכאות לשיקום?"}</span>
-            <Link href="/eligibility" className="font-semibold text-primary underline underline-offset-2 hover:text-primary/80">
+            <Link to="/eligibility" className="font-semibold text-primary underline underline-offset-2 hover:text-primary/80">
               {"בדוק/בדקי כאן"}
             </Link>
           </div>
@@ -72,7 +66,7 @@ export default function HomePage() {
           {/* Two path cards */}
           <div className="grid gap-5 md:grid-cols-2">
             {/* Path 1: Beginning */}
-            <Link href="/application" className="group">
+            <Link to="/application" className="group">
               <Card className="relative h-full overflow-hidden border-2 border-border transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5">
                 <CardContent className="flex flex-col gap-5 p-6 md:p-8">
                   {/* Step indicator */}
@@ -113,7 +107,7 @@ export default function HomePage() {
             </Link>
 
             {/* Path 2: Already approved */}
-            <Link href="/benefits" className="group">
+            <Link to="/benefits" className="group">
               <Card className="relative h-full overflow-hidden border-2 border-border transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5">
                 <CardContent className="flex flex-col gap-5 p-6 md:p-8">
                   {/* Step indicator */}

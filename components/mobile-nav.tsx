@@ -1,16 +1,14 @@
-"use client"
-
 import { useState } from "react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { Home, Sparkles, FileCheck, Phone, Navigation, X, HelpCircle, MessageCircleQuestion } from "lucide-react"
 
 const siteLinks = [
-  { href: "/", label: "דף הבית", icon: Home },
-  { href: "/benefits", label: "כל הזכאויות", icon: Sparkles },
-  { href: "/application", label: "הגשת בקשה", icon: FileCheck },
-  { href: "/faq", label: "שאלות נפוצות", icon: MessageCircleQuestion },
-  { href: "/eligibility", label: "בדיקת זכאות", icon: HelpCircle },
-  { href: "/contact", label: "פרטי קשר", icon: Phone },
+  { to: "/", label: "דף הבית", icon: Home },
+  { to: "/benefits", label: "כל הזכאויות", icon: Sparkles },
+  { to: "/application", label: "הגשת בקשה", icon: FileCheck },
+  { to: "/faq", label: "שאלות נפוצות", icon: MessageCircleQuestion },
+  { to: "/eligibility", label: "בדיקת זכאות", icon: HelpCircle },
+  { to: "/contact", label: "פרטי קשר", icon: Phone },
 ]
 
 export function MobileNav() {
@@ -62,9 +60,9 @@ export function MobileNav() {
 
             <ul className="flex flex-col gap-1">
               {siteLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.to}>
                   <Link
-                    href={link.href}
+                    to={link.to}
                     onClick={() => setOpen(false)}
                     className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                   >

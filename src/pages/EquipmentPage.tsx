@@ -1,29 +1,23 @@
-import type { Metadata } from "next"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { TutoringHero } from "@/components/tutoring/tutoring-hero"
-import { TutoringSummary } from "@/components/tutoring/tutoring-summary"
-import { TutoringAccordion } from "@/components/tutoring/tutoring-accordion"
-import { TutoringTableOfContents } from "@/components/tutoring/tutoring-toc"
+import { EquipmentHero } from "@/components/equipment/equipment-hero"
+import { EquipmentSummary } from "@/components/equipment/equipment-summary"
+import { EquipmentAccordion } from "@/components/equipment/equipment-accordion"
+import { EquipmentTableOfContents } from "@/components/equipment/equipment-toc"
 import { ImportantNote } from "@/components/important-note"
 import { MobileNav } from "@/components/mobile-nav"
 import { Breadcrumb } from "@/components/breadcrumb"
 
-export const metadata: Metadata = {
-  title: "שיעורי עזר | זכויות סטודנטים",
-  description: "מידע על שיעורי עזר, תמיכה בלימודים והשלמת פערים לסטודנטים",
-}
-
-export default function TutoringPage() {
+export default function EquipmentPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">{"שיקום מקצועי | המדריך שלך"}</Link>
+          <Link to="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">{"שיקום מקצועי | המדריך שלך"}</Link>
           <Button variant="ghost" size="sm" className="gap-2 text-sm text-muted-foreground hover:text-foreground" asChild>
-            <Link href="/benefits">
+            <Link to="/benefits">
               <ArrowRight className="h-4 w-4" />
               {"כל הזכאויות"}
             </Link>
@@ -32,7 +26,7 @@ export default function TutoringPage() {
       </header>
 
       {/* Hero */}
-      <TutoringHero />
+      <EquipmentHero />
 
       {/* Main content */}
       <main className="mx-auto max-w-5xl px-4 py-10 md:py-16">
@@ -40,7 +34,7 @@ export default function TutoringPage() {
           {/* Sidebar - Table of Contents (desktop only) */}
           <aside className="hidden lg:block lg:w-64 lg:shrink-0">
             <div className="lg:sticky lg:top-20">
-              <TutoringTableOfContents />
+              <EquipmentTableOfContents />
             </div>
           </aside>
 
@@ -49,13 +43,13 @@ export default function TutoringPage() {
 
           {/* Main Content Area */}
           <div className="flex flex-1 flex-col gap-8">
-            <Breadcrumb current="שיעורי עזר" />
+            <Breadcrumb current="ציוד לימודי" />
 
             {/* Summary */}
-            <TutoringSummary />
+            <EquipmentSummary />
 
             {/* Accordion Sections */}
-            <TutoringAccordion />
+            <EquipmentAccordion />
 
             <ImportantNote />
           </div>

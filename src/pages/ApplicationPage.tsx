@@ -1,5 +1,4 @@
-import type { Metadata } from "next"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { Sparkles, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ApplicationHero } from "@/components/application/application-hero"
@@ -8,19 +7,13 @@ import { ApplicationAccordion } from "@/components/application/application-accor
 import { ApplicationTableOfContents } from "@/components/application/application-toc"
 import { MobileNav } from "@/components/mobile-nav"
 
-export const metadata: Metadata = {
-  title: "הגשת בקשה לאישור לימודים | זכויות סטודנטים",
-  description:
-    "מידע על תהליך הגשת בקשה לאישור לימודי השכלה גבוהה כתוכנית שיקום, צעד אחר צעד",
-}
-
 export default function ApplicationPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">
+          <Link to="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">
             {"שיקום מקצועי | המדריך שלך"}
           </Link>
           <Button
@@ -29,7 +22,7 @@ export default function ApplicationPage() {
             className="gap-2 text-sm text-muted-foreground hover:text-foreground"
             asChild
           >
-            <Link href="/benefits">
+            <Link to="/benefits">
               {"מימוש זכאויות"}
               <ArrowLeft className="h-4 w-4" />
             </Link>
@@ -74,7 +67,7 @@ export default function ApplicationPage() {
             {"אחרי שקיבלת אישור לימודים, יש לך מגוון זכאויות: שכר לימוד, הוצאות נסיעה, ציוד לימודי, שיעורי עזר ועוד. גלה/י מה מגיע לך ואיך לממש."}
           </p>
           <Button size="lg" className="mt-2 gap-2 rounded-full px-8" asChild>
-            <Link href="/benefits">
+            <Link to="/benefits">
               {"לעמוד מימוש זכאויות"}
               <ArrowLeft className="h-4 w-4" />
             </Link>

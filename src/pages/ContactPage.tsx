@@ -1,14 +1,9 @@
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowRight, Phone, Mail, Users, Info, HelpCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { MobileNav } from "@/components/mobile-nav"
-
-export const metadata = {
-  title: "פרטי קשר | שיקום מקצועי לסטודנטים",
-  description: "פרטי קשר עובדי שיקום \u2013 טלפונים, דוא\"ל ומידע על המגשרות",
-}
 
 const staffGroups = [
   {
@@ -42,11 +37,11 @@ export default function ContactPage() {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">
+          <Link to="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">
             {"שיקום מקצועי | המדריך שלך"}
           </Link>
           <Button variant="ghost" size="sm" className="gap-2 text-sm text-muted-foreground hover:text-foreground" asChild>
-            <Link href="/benefits">
+            <Link to="/benefits">
               <ArrowRight className="h-4 w-4" />
               {"כל הזכאויות"}
             </Link>
