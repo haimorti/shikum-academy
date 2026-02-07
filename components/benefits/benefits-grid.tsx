@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import {
   Bus,
   GraduationCap,
@@ -147,7 +147,7 @@ function BenefitCard({
   )
 
   if (isActive && benefit.href) {
-    return <Link href={benefit.href}>{cardContent}</Link>
+    return <Link to={benefit.href}>{cardContent}</Link>
   }
 
   return cardContent

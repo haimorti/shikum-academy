@@ -1,28 +1,23 @@
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { AccessibilityHero } from "@/components/accessibility/accessibility-hero"
-import { AccessibilitySummary } from "@/components/accessibility/accessibility-summary"
-import { AccessibilityAccordion } from "@/components/accessibility/accessibility-accordion"
-import { AccessibilityTableOfContents } from "@/components/accessibility/accessibility-toc"
+import { TutoringHero } from "@/components/tutoring/tutoring-hero"
+import { TutoringSummary } from "@/components/tutoring/tutoring-summary"
+import { TutoringAccordion } from "@/components/tutoring/tutoring-accordion"
+import { TutoringTableOfContents } from "@/components/tutoring/tutoring-toc"
+import { ImportantNote } from "@/components/important-note"
 import { MobileNav } from "@/components/mobile-nav"
 import { Breadcrumb } from "@/components/breadcrumb"
-import { ImportantNote } from "@/components/important-note"
 
-export const metadata = {
-  title: "הנגשות | שיקום מקצועי לסטודנטים",
-  description: "סיוע בהנגשת הלימודים והסביבה \u2013 מלווה אישי, חונכות, ציוד טכנולוגי, הנגשת חומרי לימוד ועוד",
-}
-
-export default function AccessibilityPage() {
+export default function TutoringPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">{"שיקום מקצועי | המדריך שלך"}</Link>
+          <Link to="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">{"שיקום מקצועי | המדריך שלך"}</Link>
           <Button variant="ghost" size="sm" className="gap-2 text-sm text-muted-foreground hover:text-foreground" asChild>
-            <Link href="/benefits">
+            <Link to="/benefits">
               <ArrowRight className="h-4 w-4" />
               {"כל הזכאויות"}
             </Link>
@@ -31,7 +26,7 @@ export default function AccessibilityPage() {
       </header>
 
       {/* Hero */}
-      <AccessibilityHero />
+      <TutoringHero />
 
       {/* Main content */}
       <main className="mx-auto max-w-5xl px-4 py-10 md:py-16">
@@ -39,7 +34,7 @@ export default function AccessibilityPage() {
           {/* Sidebar - Table of Contents (desktop only) */}
           <aside className="hidden lg:block lg:w-64 lg:shrink-0">
             <div className="lg:sticky lg:top-20">
-              <AccessibilityTableOfContents />
+              <TutoringTableOfContents />
             </div>
           </aside>
 
@@ -48,15 +43,14 @@ export default function AccessibilityPage() {
 
           {/* Main Content Area */}
           <div className="flex flex-1 flex-col gap-8">
-            <Breadcrumb current="הנגשות" />
+            <Breadcrumb current="שיעורי עזר" />
 
             {/* Summary */}
-            <AccessibilitySummary />
+            <TutoringSummary />
 
             {/* Accordion Sections */}
-            <AccessibilityAccordion />
+            <TutoringAccordion />
 
-            {/* Semester end note */}
             <ImportantNote />
           </div>
         </div>

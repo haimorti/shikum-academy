@@ -3,7 +3,7 @@
 import React from "react"
 
 import { useState } from "react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import {
   CheckCircle2,
   ClipboardList,
@@ -260,7 +260,7 @@ export function EligibilityContent() {
         </p>
         <div className="mt-4">
           <Button asChild>
-            <Link href="/application" className="gap-2">
+            <Link to="/application" className="gap-2">
               {"להגשת בקשה"}
               <ArrowLeft className="h-4 w-4" />
             </Link>
@@ -277,7 +277,7 @@ export function EligibilityContent() {
             {"אם כבר הגשת תביעה ונפגשת עם עובד שיקום, אך לא מצאת החלטה באזור האישי \u2013 ניתן ליצור קשר עם עובד השיקום ולבדוק את מצב הבקשה."}
           </p>
           <Button variant="outline" size="sm" asChild className="mt-1 w-fit bg-transparent">
-            <Link href="/contact" className="gap-2">
+            <Link to="/contact" className="gap-2">
               {"יצירת קשר"}
               <ArrowLeft className="h-3.5 w-3.5" />
             </Link>
@@ -288,7 +288,7 @@ export function EligibilityContent() {
       {/* Back to home */}
       <div className="flex justify-center pt-4">
         <Button variant="outline" asChild>
-          <Link href="/" className="gap-2">
+          <Link to="/" className="gap-2">
             {"חזרה לדף הבית"}
           </Link>
         </Button>

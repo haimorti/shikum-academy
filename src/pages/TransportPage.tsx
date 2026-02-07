@@ -1,29 +1,23 @@
-import type { Metadata } from "next"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { HousingHero } from "@/components/housing/housing-hero"
-import { HousingSummary } from "@/components/housing/housing-summary"
-import { HousingAccordion } from "@/components/housing/housing-accordion"
-import { HousingTableOfContents } from "@/components/housing/housing-toc"
+import { HeroSection } from "@/components/hero-section"
+import { SummaryCard } from "@/components/summary-card"
+import { TransportAccordion } from "@/components/transport-accordion"
+import { ImportantNote } from "@/components/important-note"
+import { TableOfContents } from "@/components/table-of-contents"
 import { MobileNav } from "@/components/mobile-nav"
 import { Breadcrumb } from "@/components/breadcrumb"
-import { ImportantNote } from "@/components/important-note"
 
-export const metadata: Metadata = {
-  title: "שכר דירה | שיקום מקצועי לסטודנטים",
-  description: "מידע על סיוע בשכר דירה לסטודנטים בשיקום מקצועי",
-}
-
-export default function HousingPage() {
+export default function Page() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">{"שיקום מקצועי | המדריך שלך"}</Link>
+          <Link to="/" className="text-sm font-bold text-primary transition-colors hover:text-primary/80">{"שיקום מקצועי | המדריך שלך"}</Link>
           <Button variant="ghost" size="sm" className="gap-2 text-sm text-muted-foreground hover:text-foreground" asChild>
-            <Link href="/benefits">
+            <Link to="/benefits">
               <ArrowRight className="h-4 w-4" />
               {"כל הזכאויות"}
             </Link>
@@ -32,7 +26,7 @@ export default function HousingPage() {
       </header>
 
       {/* Hero */}
-      <HousingHero />
+      <HeroSection />
 
       {/* Main content */}
       <main className="mx-auto max-w-5xl px-4 py-10 md:py-16">
@@ -40,7 +34,7 @@ export default function HousingPage() {
           {/* Sidebar - Table of Contents (desktop only) */}
           <aside className="hidden lg:block lg:w-64 lg:shrink-0">
             <div className="lg:sticky lg:top-20">
-              <HousingTableOfContents />
+              <TableOfContents />
             </div>
           </aside>
 
@@ -49,16 +43,20 @@ export default function HousingPage() {
 
           {/* Main Content Area */}
           <div className="flex flex-1 flex-col gap-8">
-            <Breadcrumb current="שכר דירה" />
+            <Breadcrumb current="נסיעות" />
 
             {/* Summary */}
-            <HousingSummary />
+            <SummaryCard />
 
-            {/* Full content */}
-            <HousingAccordion />
+            {/* Transport Accordion Sections */}
+            <section id="public-transport" className="scroll-mt-20">
+              <TransportAccordion />
+            </section>
 
-            {/* Semester end note */}
-            <ImportantNote />
+            {/* Important Note */}
+            <section id="important-note" className="scroll-mt-20">
+              <ImportantNote />
+            </section>
           </div>
         </div>
       </main>
