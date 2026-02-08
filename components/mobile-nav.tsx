@@ -1,14 +1,22 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
-import { Home, Sparkles, FileCheck, Phone, Navigation, X, HelpCircle, MessageCircleQuestion } from "lucide-react"
+import {
+  Home,
+  Sparkles,
+  FileCheck,
+  Phone,
+  Navigation,
+  X,
+  HelpCircle,
+  MessageCircleQuestion,
+} from "lucide-react"
 
 const siteLinks = [
-  { to: "/", label: "דף הבית", icon: Home },
-  { to: "/benefits", label: "כל הזכאויות", icon: Sparkles },
-  { to: "/application", label: "הגשת בקשה", icon: FileCheck },
-  { to: "/faq", label: "שאלות נפוצות", icon: MessageCircleQuestion },
-  { to: "/eligibility", label: "בדיקת זכאות", icon: HelpCircle },
-  { to: "/contact", label: "פרטי קשר", icon: Phone },
+  { href: "/", label: "דף הבית", icon: Home },
+  { href: "/benefits", label: "כל הזכאויות", icon: Sparkles },
+  { href: "/application", label: "הגשת בקשה", icon: FileCheck },
+  { href: "/faq", label: "שאלות נפוצות", icon: MessageCircleQuestion },
+  { href: "/eligibility", label: "בדיקת זכאות", icon: HelpCircle },
+  { href: "/contact", label: "פרטי קשר", icon: Phone },
 ]
 
 export function MobileNav() {
@@ -44,9 +52,7 @@ export function MobileNav() {
             className="fixed bottom-0 left-0 right-0 z-50 max-h-[70vh] overflow-y-auto rounded-t-2xl border-t border-border bg-card px-5 pb-8 pt-4 shadow-2xl animate-in slide-in-from-bottom duration-200"
           >
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-sm font-bold text-muted-foreground">
-                {"ניווט באתר"}
-              </h2>
+              <h2 className="text-sm font-bold text-muted-foreground">ניווט באתר</h2>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
@@ -56,19 +62,20 @@ export function MobileNav() {
                 <X className="h-4 w-4" />
               </button>
             </div>
+
             <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-border" />
 
             <ul className="flex flex-col gap-1">
               {siteLinks.map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
+                <li key={link.href}>
+                  <a
+                    href={link.href}
                     onClick={() => setOpen(false)}
                     className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                   >
                     <link.icon className="h-4 w-4 shrink-0 text-primary" />
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
